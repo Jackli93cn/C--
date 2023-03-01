@@ -1,0 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include <stdio.h>
+
+int main(int argc, const char* argv[])
+
+{
+	int year, month, day;
+	int sum = 0;
+	int leap = 0;
+	
+	printf("please input date in here:");
+	scanf("%d,%d,%d", &year, &month, &day);
+	printf("year = %d , month = %d , day = %d\n", year, month, day);
+
+	switch (month)
+	{
+	case 1:printf("Jan."); sum = 0; break;
+	case 2:printf("Feb."); sum = 31; break;
+	case 3:printf("Mar."); sum = 59; break;
+	case 4:printf("Apr."); sum = 90; break;
+	case 5:printf("May."); sum = 120; break;
+	case 6:printf("Jun."); sum = 151; break;
+	case 7:printf("Jul."); sum = 181; break;
+	case 8:printf("Aug."); sum = 212; break;
+	case 9:printf("Sept."); sum = 243; break;
+	case 10:printf("Oct."); sum = 273; break;
+	case 11:printf("Nov."); sum = 304; break;
+	case 12:printf("Dec."); sum = 334; break;
+	}
+	if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+	{
+		leap = 1;
+	}
+	else {
+		leap = 0;
+	}
+	if (leap == 1 && month > 2)
+	{
+		sum++;
+		sum = sum + day;
+		printf("total days%d\n", sum);
+	}
+	return 0;
+}
