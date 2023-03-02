@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
+
 #include <stdio.h>
 
 int main(int argc, const char* argv[])
@@ -7,11 +8,11 @@ int main(int argc, const char* argv[])
 {
 	int year, month, day;
 	int sum = 0;
-	int leap = 0;
+	int leap;
 	
 	printf("please input date in here:");
 	scanf("%d,%d,%d", &year, &month, &day);
-	printf("year = %d , month = %d , day = %d\n", year, month, day);
+
 
 	switch (month)
 	{
@@ -27,7 +28,9 @@ int main(int argc, const char* argv[])
 	case 10:printf("Oct."); sum = 273; break;
 	case 11:printf("Nov."); sum = 304; break;
 	case 12:printf("Dec."); sum = 334; break;
+	default:printf("data error"); break;
 	}
+	sum += day;
 	if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
 	{
 		leap = 1;
@@ -38,8 +41,8 @@ int main(int argc, const char* argv[])
 	if (leap == 1 && month > 2)
 	{
 		sum++;
-		sum = sum + day;
-		printf("total days%d\n", sum);
 	}
+	printf("year = %d , month = %d , day = %d\n", year, month, day);
+	printf("total days%d\n", sum);
 	return 0;
 }
