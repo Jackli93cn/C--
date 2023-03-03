@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+
+int main()
+{
+	int a = 1;
+	int b = 1;
+	for (int i = 1; i <= 40; i++) 
+	{
+		printf("%dmonth.%d\n%dmonth.%d\n",i++, a, i, b);
+		a = a + b;
+		b = b + a;
+	}
+
+	return 0;
+}
